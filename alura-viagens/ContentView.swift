@@ -59,8 +59,23 @@ struct ContentView: View {
                 .offset(y: -30)
 
                 List(viagens) { viagem in
-                    Text(viagem.titulo)
+                    VStack(alignment: .leading) {
+                        Text(viagem.titulo)
+                        Image(viagem.imagem)
+                            .resizable()
+                            .frame(height: 125)
+
+                        HStack {
+                            Text(viagem.quantidadeDeDias)
+
+                            Spacer()
+
+                            Text(viagem.valor)
+                        }
+
+                    }
                 }
+                .scrollContentBackground(.hidden)
             }
         }
         .edgesIgnoringSafeArea(.all)
